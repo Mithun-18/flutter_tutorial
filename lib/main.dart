@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/app_bar.dart';
 import 'package:testflutter/registration_page.dart';
-import 'package:testflutter/temple%20view/my_temple.dart';
+import 'package:testflutter/temple%20view/booking_card.dart';
+import 'package:testflutter/temple%20view/my_temple_card.dart';
 import 'package:testflutter/verification_page.dart';
 // import 'package:testflutter/my_test_screen.dart';
 
@@ -49,8 +50,10 @@ class MyApp extends StatelessWidget {
             ),
         '/my-temple': (context) => const Scaffold(
               appBar: MyAppBar(),
-              body: MyTemple(),
+              body: MyTempleCard(),
             ),
+        '/booking': (context) =>
+            const Scaffold(appBar: MyAppBar(), body: BookingCard())
       },
       title: "flutter demo",
       theme: ThemeData(
