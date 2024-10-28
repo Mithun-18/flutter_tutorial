@@ -75,7 +75,7 @@ class Registration extends StatelessWidget {
         width: 248.0,
         child: ElevatedButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/booking');
+            Navigator.pushNamed(context, '/verification');
           },
           child: const Text(
             "SEND",

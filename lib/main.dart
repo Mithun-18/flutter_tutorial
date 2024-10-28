@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/app_bar.dart';
-import 'package:testflutter/temple%20view/add_button_lg.dart';
 import 'package:testflutter/temple%20view/booking_card.dart';
+import 'package:testflutter/temple%20view/community_card.dart';
 import 'package:testflutter/temple%20view/my_temple_card.dart';
 import 'package:testflutter/verification_page.dart';
 // import 'package:testflutter/my_test_screen.dart';
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const Scaffold(
               appBar: MyAppBar(),
-              body: AddButtonLg(),
+              body: CommunityCard(),
             ),
         '/verification': (context) => const Scaffold(
               appBar: MyAppBar(),
