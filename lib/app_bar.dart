@@ -8,6 +8,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: Colors.white,
       flexibleSpace: SizedBox(
         height: appbarHeight,
@@ -15,7 +16,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Row(
             children: [
-              _renderLeading(),
+              _renderLeading(context),
               _renderTitle(),
               _renderAction(),
             ],
@@ -25,24 +26,29 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  Widget _renderLeading() {
-    return Container(
-      width: 40.0,
-      height: 40.0,
-      decoration: BoxDecoration(
-        color: Colors.white, // Set a background color if needed
-        borderRadius:
-            BorderRadius.circular(12.0), // Optional: add border radius
-        boxShadow: const [
-          BoxShadow(
-            color: Color.fromRGBO(211, 209, 216, 0.3),
-            offset: Offset(0, 2),
-            blurRadius: 4,
-            spreadRadius: 1,
-          )
-        ],
+  Widget _renderLeading(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pop(context);
+      },
+      child: Container(
+        width: 40.0,
+        height: 40.0,
+        decoration: BoxDecoration(
+          color: Colors.white, // Set a background color if needed
+          borderRadius:
+              BorderRadius.circular(12.0), // Optional: add border radius
+          boxShadow: const [
+            BoxShadow(
+              color: Color.fromRGBO(211, 209, 216, 0.3),
+              offset: Offset(0, 2),
+              blurRadius: 4,
+              spreadRadius: 1,
+            )
+          ],
+        ),
+        child: const Icon(Icons.arrow_back_ios_rounded, size: 16.0),
       ),
-      child: const Icon(Icons.arrow_back_ios_rounded, size: 16.0),
     );
   }
 
