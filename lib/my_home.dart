@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/app_bar.dart';
 import 'package:testflutter/registration_page.dart';
-import 'package:testflutter/verification_page.dart';
 
 class MyHome extends StatefulWidget {
   final int initialValue;

@@ -18,7 +18,7 @@ class Registration extends StatelessWidget {
           const SizedBox(height: 32.0),
           _renderMobileNumberTextField(),
           const SizedBox(height: 40.0),
-          _renderActionButton(),
+          _renderActionButton(context),
         ],
       ),
     );
@@ -41,7 +41,7 @@ class Registration extends StatelessWidget {
       style: TextStyle(
         fontFamily: "Alatsi",
         fontSize: 14,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w600,
         color: Color.fromRGBO(101, 100, 112, 1),
       ),
     );
@@ -68,13 +68,15 @@ class Registration extends StatelessWidget {
     );
   }
 
-  Widget _renderActionButton() {
+  Widget _renderActionButton(BuildContext context) {
     return Center(
       child: SizedBox(
         height: 60.0,
         width: 248.0,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/my-temple');
+          },
           child: const Text(
             "SEND",
             style: TextStyle(

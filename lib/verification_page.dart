@@ -6,138 +6,94 @@ class VerificationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 480,
+    return Container(
+      color: Colors.white,
+      padding: const EdgeInsets.all(24.0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                "Vefification Code",
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 36,
-                  fontFamily: "Average Sans",
-                ),
-              ),
-              Text(
-                "Please type the verification code sent to\nyour phone",
-                style: TextStyle(
-                    fontFamily: "Alatsi",
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: Color.fromRGBO(101, 100, 112, 1)),
-              ),
-              SizedBox(
-                height: 30,
-              )
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              SizedBox(
-                  width: 64,
-                  height: 64,
-                  child: TextFormField(
-                    onChanged: (value) => {
-                      if (value.length == 1) FocusScope.of(context).nextFocus()
-                    },
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                      contentPadding: EdgeInsets.symmetric(vertical: 20),
-                    ),
-                    textAlign: TextAlign.center,
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [
-                      LengthLimitingTextInputFormatter(1),
-                      FilteringTextInputFormatter.digitsOnly
-                    ],
-                  )),
-              SizedBox(
-                  width: 64,
-                  height: 64,
-                  child: TextFormField(
-                    onChanged: (value) => {
-                      if (value.length == 1) FocusScope.of(context).nextFocus()
-                    },
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                      contentPadding: EdgeInsets.symmetric(vertical: 20),
-                    ),
-                    textAlign: TextAlign.center,
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [
-                      LengthLimitingTextInputFormatter(1),
-                      FilteringTextInputFormatter.digitsOnly
-                    ],
-                  )),
-              SizedBox(
-                  width: 64,
-                  height: 64,
-                  child: TextFormField(
-                    onChanged: (value) => {
-                      if (value.length == 1) FocusScope.of(context).nextFocus()
-                    },
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                      contentPadding: EdgeInsets.symmetric(vertical: 20),
-                    ),
-                    textAlign: TextAlign.center,
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [
-                      LengthLimitingTextInputFormatter(1),
-                      FilteringTextInputFormatter.digitsOnly
-                    ],
-                  )),
-              SizedBox(
-                  width: 64,
-                  height: 64,
-                  child: TextFormField(
-                    onChanged: (value) => {
-                      if (value.length == 1) FocusScope.of(context).nextFocus()
-                    },
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                      ),
-                      contentPadding: EdgeInsets.symmetric(vertical: 20),
-                    ),
-                    textAlign: TextAlign.center,
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [
-                      LengthLimitingTextInputFormatter(1),
-                      FilteringTextInputFormatter.digitsOnly
-                    ],
-                  )),
-            ],
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "I don’t recevie a code! Please resend",
-                style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 16,
-                    fontFamily: "Amiri Quran Colored"),
-              ),
-            ],
-          )
+          const SizedBox(height: 60.0),
+          _renderTitle(),
+          _renderDescription(),
+          const SizedBox(height: 32.0),
+          _renderVerificationTextField(context),
+          const SizedBox(height: 40.0),
+          _renderResendCodeMssg(),
         ],
       ),
     );
+  }
+
+  Widget _renderTitle() {
+    return const Text(
+      "Verification Code",
+      style: TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 36.0,
+        fontFamily: "Average Sans",
+      ),
+    );
+  }
+
+  Widget _renderDescription() {
+    return const Text(
+      "Please type the verification code sent to\nyour phone",
+      style: TextStyle(
+        fontFamily: "Alatsi",
+        fontSize: 14,
+        fontWeight: FontWeight.w600,
+        color: Color.fromRGBO(101, 100, 112, 1),
+      ),
+    );
+  }
+
+  Widget _renderVerificationTextField(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        _renderVeficationFeild(context),
+        _renderVeficationFeild(context),
+        _renderVeficationFeild(context),
+        _renderVeficationFeild(context)
+      ],
+    );
+  }
+
+  Widget _renderResendCodeMssg() {
+    return const Center(
+      child: Text(
+        "I don’t recevie a code! Please resend",
+        style: TextStyle(
+            fontWeight: FontWeight.w400,
+            fontSize: 16,
+            fontFamily: "Amiri Quran Colored"),
+      ),
+    );
+  }
+
+  Widget _renderVeficationFeild(BuildContext context) {
+    return SizedBox(
+        width: 64,
+        height: 64,
+        child: TextFormField(
+          style: const TextStyle(
+              fontFamily: "Amiri Quran Colored",
+              fontWeight: FontWeight.w400,
+              fontSize: 24.0),
+          onChanged: (value) =>
+              {if (value.length == 1) FocusScope.of(context).nextFocus()},
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+            contentPadding: EdgeInsets.symmetric(vertical: 20),
+          ),
+          textAlign: TextAlign.center,
+          keyboardType: TextInputType.number,
+          inputFormatters: [
+            LengthLimitingTextInputFormatter(1),
+            FilteringTextInputFormatter.digitsOnly
+          ],
+        ));
   }
 }
