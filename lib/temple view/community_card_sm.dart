@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CommunityCard extends StatelessWidget {
-  const CommunityCard({super.key});
+class CommunityCardSm extends StatelessWidget {
+  const CommunityCardSm({super.key});
 
   @override
   Widget build(BuildContext context) {
