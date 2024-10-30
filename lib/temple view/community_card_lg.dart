@@ -9,9 +9,8 @@ class CommunityCardLg extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            height: 120.0,
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+            height: 104.0,
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -32,7 +31,7 @@ class CommunityCardLg extends StatelessWidget {
             ),
           ),
           Positioned(
-              bottom: 24,
+              bottom: 18,
               right: 16,
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.end, children: [
