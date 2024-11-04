@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/common/app_base_screen.dart';
+import 'package:testflutter/common/app_colors.dart';
 import 'package:testflutter/common/widgets/core/app_elevated_button.dart';
 import 'package:testflutter/temple%20view/booking_card.dart';
 import 'package:testflutter/temple%20view/community_card_sm.dart';
@@ -16,68 +17,13 @@ class HomeScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
           child: Column(
             children: [
-              Column(
-                children: [
-                  _renderTempleHeader(context),
-                  const SizedBox(
-                    height: 8.0,
-                  ),
-                  const MyTempleCard()
-                ],
-              ),
-              const SizedBox(
-                height: 32.0,
-              ),
-              Column(
-                children: [
-                  _renderBookingHeader(context),
-                  const SizedBox(
-                    height: 8.0,
-                  ),
-                  const BookingCard(),
-                  const SizedBox(
-                    height: 16.0,
-                  ),
-                  const BookingCard()
-                ],
-              ),
-              const SizedBox(
-                height: 32.0,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Wrap(
-                    spacing: 24.0,
-                    direction: Axis.horizontal,
-                    runSpacing: 24.0,
-                    children: [
-                      _renderActionButton("Add Events"),
-                      _renderActionButton("Add Community"),
-                      _renderActionButton("Add Members"),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 32.0,
-              ),
-              Column(
-                children: [
-                  _renderCommunityHeader(context),
-                  const SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        CommunityCardSm(),
-                        CommunityCardSm(),
-                        CommunityCardSm(),
-                        CommunityCardSm()
-                      ],
-                    ),
-                  )
-                ],
-              )
+              _renderTempleSection(context),
+              _renderSizeBox(),
+              _renderBookingSection(context),
+              _renderSizeBox(),
+              _renderButtons(),
+              _renderSizeBox(),
+              _renderCommunitySection(context)
             ],
           ),
         ),
@@ -94,12 +40,13 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {},
           child: Row(
             children: [
-              const Text(
+              Text(
                 "Update ",
                 style: TextStyle(
                     fontFamily: "Inter",
                     fontWeight: FontWeight.w400,
-                    fontSize: 16.0),
+                    fontSize: 16.0,
+                    color: AppColors.salmon),
               ),
               SizedBox(
                   width: 18.0,
@@ -122,12 +69,13 @@ class HomeScreen extends StatelessWidget {
         Text("My Bookings", style: Theme.of(context).textTheme.titleMedium),
         TextButton(
           onPressed: () {},
-          child: const Text(
+          child: Text(
             "See All >>",
             style: TextStyle(
                 fontFamily: "Inter",
                 fontWeight: FontWeight.w400,
-                fontSize: 16.0),
+                fontSize: 16.0,
+                color: AppColors.salmon),
           ),
         )
       ],
@@ -149,13 +97,85 @@ class HomeScreen extends StatelessWidget {
 
   Widget _renderActionButton(String text) {
     return SizedBox(
-      width: 184.0,
-      height: 80.0,
+      // width: 184.0,
+      height: 72.0,
       child: AppElevatedButton(
         aebText: text,
         aebPrefixIcon: Icons.add_circle_outline,
         aebSizeSmall: true,
       ),
+    );
+  }
+
+  Widget _renderSizeBox() {
+    return const SizedBox(
+      height: 32.0,
+    );
+  }
+
+  Widget _renderTempleSection(BuildContext context) {
+    return Column(
+      children: [
+        _renderTempleHeader(context),
+        const SizedBox(
+          height: 8.0,
+        ),
+        const MyTempleCard()
+      ],
+    );
+  }
+
+  Widget _renderBookingSection(BuildContext context) {
+    return Column(
+      children: [
+        _renderBookingHeader(context),
+        const SizedBox(
+          height: 8.0,
+        ),
+        const BookingCard(),
+        const SizedBox(
+          height: 16.0,
+        ),
+        const BookingCard()
+      ],
+    );
+  }
+
+  Widget _renderButtons() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Wrap(
+          spacing: 24.0,
+          direction: Axis.horizontal,
+          alignment: WrapAlignment.start,
+          runSpacing: 24.0,
+          children: [
+            _renderActionButton("Add Events"),
+            _renderActionButton("Add Community"),
+            _renderActionButton("Add Members"),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _renderCommunitySection(BuildContext context) {
+    return Column(
+      children: [
+        _renderCommunityHeader(context),
+        const SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              CommunityCardSm(),
+              CommunityCardSm(),
+              CommunityCardSm(),
+              CommunityCardSm()
+            ],
+          ),
+        )
+      ],
     );
   }
 }

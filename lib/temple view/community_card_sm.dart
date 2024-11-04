@@ -19,7 +19,7 @@ class CommunityCardSm extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 _renderProfile(),
-                _renderCommunityName(),
+                _renderCommunityName(context),
                 _renderTempleName(),
                 _renderFooter()
               ],
@@ -47,11 +47,10 @@ class CommunityCardSm extends StatelessWidget {
         ));
   }
 
-  Widget _renderCommunityName() {
-    return const Text(
+  Widget _renderCommunityName(BuildContext context) {
+    return Text(
       "Event Volunteer",
-      style: TextStyle(
-          fontFamily: "Inter", fontWeight: FontWeight.w700, fontSize: 12.0),
+      style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 12.0),
     );
   }
 
