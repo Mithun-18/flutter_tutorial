@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/app_bar.dart';
-import 'package:testflutter/registration_page.dart';
 
 class MyHome extends StatefulWidget {
   final int initialValue;
@@ -24,7 +23,7 @@ class _MyHomeState extends State<MyHome> {
   Widget build(BuildContext context) {
     return const Scaffold(
       appBar: MyAppBar(),
-      body: Registration(),
+      // body: Registration(),
     );
   }
 }

@@ -21,6 +21,15 @@ class AppTheme {
           fontWeight: FontWeight.w700,
           color: AppColors.charcoal,
         ),
+        headlineLarge: const TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: 36.0,
+        ),
+        headlineSmall: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+          color: AppColors.dimGray,
+        ),
         labelMedium: TextStyle(
           fontWeight: FontWeight.w500,
           fontSize: 12,

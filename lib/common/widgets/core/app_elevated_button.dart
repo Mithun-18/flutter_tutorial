@@ -17,6 +17,18 @@ class AppElevatedButton extends StatelessWidget {
     this.aebSizeSmall,
   });
 
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+        ),
+        onPressed: aebOnPressed,
+        child: _renderButton(context));
+  }
+
   Widget _renderButton(BuildContext context) {
     if (aebSizeSmall != null) {
       return Column(
@@ -56,17 +68,5 @@ class AppElevatedButton extends StatelessWidget {
         )
       ],
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-        ),
-        onPressed: aebOnPressed,
-        child: _renderButton(context));
   }
 }

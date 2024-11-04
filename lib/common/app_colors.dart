@@ -6,5 +6,8 @@ class AppColors {
   static Color silverGrey = const Color.fromRGBO(181, 181, 181, 1.0);
   static Color mistyRose = const Color.fromRGBO(255, 223, 212, 1.0);
   static Color lightSalmon = const Color.fromRGBO(255, 130, 85, 0.6);
-  static Color charcoal = const Color.fromRGBO(53, 82, 98, 1);
+  static Color charcoal = const Color.fromRGBO(53, 82, 98, 1.0);
+  static Color dimGray = const Color.fromRGBO(101, 100, 112, 1.0);
+  static Color coral = const Color.fromRGBO(255, 130, 85, 1.0);
+  static Color azure = const Color.fromRGBO(24, 119, 242, 1.0);
 }
