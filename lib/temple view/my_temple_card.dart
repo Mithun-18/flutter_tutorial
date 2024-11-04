@@ -45,8 +45,8 @@ class MyTempleCard extends StatelessWidget {
             "Ram Mandir",
             style: Theme.of(context).textTheme.titleSmall,
           ),
-          Divider(),
-          Text(
+          const Divider(),
+          const Text(
             "Ayodhya, UP",
             style: TextStyle(
                 fontFamily: "Roboto",

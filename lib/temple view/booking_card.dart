@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testflutter/common/widgets/core/app_elevated_button.dart';
 
 class BookingCard extends StatelessWidget {
   const BookingCard({super.key});
@@ -9,7 +10,7 @@ class BookingCard extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[_renderImage(), _renderBookingInfo()],
+        children: <Widget>[_renderImage(), _renderBookingInfo(context)],
       ),
     );
   }
@@ -30,7 +31,7 @@ class BookingCard extends StatelessWidget {
         ));
   }
 
-  Widget _renderBookingInfo() {
+  Widget _renderBookingInfo(BuildContext context) {
     return Container(
       width: 360.0,
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -58,23 +59,14 @@ class BookingCard extends StatelessWidget {
             ],
           ),
           SizedBox(
-              width: 136,
-              height: 24,
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  onPressed: () {},
-                  child: const Text(
-                    "View Booking",
-                    style: TextStyle(
-                      fontFamily: "Inter",
-                      fontWeight: FontWeight.w500,
-                      fontSize: 12,
-                    ),
-                  )))
+            width: 136,
+            height: 24,
+            child: AppElevatedButton(
+              aebText: 'View Booking',
+              aebOnPressed: () {},
+              aebTextStyle: Theme.of(context).textTheme.labelMedium,
+            ),
+          )
         ],
       ),
     );

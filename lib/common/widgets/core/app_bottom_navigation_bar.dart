@@ -4,19 +4,19 @@ class AppBottomNavigationBar extends StatefulWidget {
   static List<Map<String, dynamic>> screens = [
     {
       'name': 'Home',
-      'icon': Icon(Icons.home_filled),
+      'icon': const Icon(Icons.home_filled),
     },
     {
       'name': 'Events',
-      'icon': Icon(Icons.home_filled),
+      'icon': const Icon(Icons.home_filled),
     },
     {
       'name': 'Community',
-      'icon': Icon(Icons.home_filled),
+      'icon': const Icon(Icons.home_filled),
     },
     {
       'name': 'Manage',
-      'icon': Icon(Icons.home_filled),
+      'icon': const Icon(Icons.home_filled),
     }
   ];
 

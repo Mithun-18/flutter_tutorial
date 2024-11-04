@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/common/app_base_screen.dart';
 import 'package:testflutter/common/widgets/core/app_elevated_button.dart';
-import 'package:testflutter/temple%20view/add_button_sm.dart';
 import 'package:testflutter/temple%20view/booking_card.dart';
 import 'package:testflutter/temple%20view/community_card_sm.dart';
 import 'package:testflutter/temple%20view/my_temple_card.dart';
@@ -19,13 +18,9 @@ class HomeScreen extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  _renderTempleHeader(),
+                  _renderTempleHeader(context),
                   const SizedBox(
                     height: 8.0,
-                  ),
-                  AppElevatedButton(
-                    aebText: 'hello',
-                    aebOnPressed: () {},
                   ),
                   const MyTempleCard()
                 ],
@@ -35,7 +30,7 @@ class HomeScreen extends StatelessWidget {
               ),
               Column(
                 children: [
-                  _renderBookingHeader(),
+                  _renderBookingHeader(context),
                   const SizedBox(
                     height: 8.0,
                   ),
@@ -49,20 +44,19 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 32.0,
               ),
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Wrap(
+                    spacing: 24.0,
+                    direction: Axis.horizontal,
+                    runSpacing: 24.0,
                     children: [
-                      AddButtonSm(),
-                      AddButtonSm(),
+                      _renderActionButton("Add Events"),
+                      _renderActionButton("Add Community"),
+                      _renderActionButton("Add Members"),
                     ],
                   ),
-                  SizedBox(
-                    height: 24.0,
-                  ),
-                  AddButtonSm(),
                 ],
               ),
               const SizedBox(
@@ -70,9 +64,17 @@ class HomeScreen extends StatelessWidget {
               ),
               Column(
                 children: [
-                  _renderCommunityHeader(),
-                  const Row(
-                    children: [CommunityCardSm(), CommunityCardSm()],
+                  _renderCommunityHeader(context),
+                  const SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        CommunityCardSm(),
+                        CommunityCardSm(),
+                        CommunityCardSm(),
+                        CommunityCardSm()
+                      ],
+                    ),
                   )
                 ],
               )
@@ -83,15 +85,11 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _renderTempleHeader() {
+  Widget _renderTempleHeader(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text(
-          "My Temple",
-          style: TextStyle(
-              fontFamily: 'Inter', fontWeight: FontWeight.w700, fontSize: 16.0),
-        ),
+        Text("My Temple", style: Theme.of(context).textTheme.titleMedium),
         TextButton(
           onPressed: () {},
           child: Row(
@@ -110,19 +108,18 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         )
+        // AppTextButton(
+        //     aebText: "Update",
+        //     aebSufixIcon: ImageIcon(AssetImage("assets/edit.png"))),
       ],
     );
   }
 
-  Widget _renderBookingHeader() {
+  Widget _renderBookingHeader(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text("My Bookings",
-            style: TextStyle(
-                fontFamily: "Inter",
-                fontWeight: FontWeight.w700,
-                fontSize: 16.0)),
+        Text("My Bookings", style: Theme.of(context).textTheme.titleMedium),
         TextButton(
           onPressed: () {},
           child: const Text(
@@ -137,7 +134,28 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _renderCommunityHeader() {
-    return const Text("Community");
+  Widget _renderCommunityHeader(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Text(
+          "Community",
+          style: Theme.of(context).textTheme.titleMedium,
+          textAlign: TextAlign.start,
+        ),
+      ],
+    );
+  }
+
+  Widget _renderActionButton(String text) {
+    return SizedBox(
+      width: 184.0,
+      height: 80.0,
+      child: AppElevatedButton(
+        aebText: text,
+        aebPrefixIcon: Icons.add_circle_outline,
+        aebSizeSmall: true,
+      ),
+    );
   }
 }

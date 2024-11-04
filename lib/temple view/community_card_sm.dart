@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testflutter/common/app_colors.dart';
 
 class CommunityCardSm extends StatelessWidget {
   const CommunityCardSm({super.key});
@@ -6,6 +7,7 @@ class CommunityCardSm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: AppColors.mistyRose,
       child: Stack(
         children: [
           Container(
@@ -36,7 +38,13 @@ class CommunityCardSm extends StatelessWidget {
   }
 
   Widget _renderProfile() {
-    return const SizedBox(width: 88.0, height: 88.0, child: CircleAvatar());
+    return Container(
+        width: 88.0,
+        height: 88.0,
+        padding: const EdgeInsets.all(4),
+        child: CircleAvatar(
+          backgroundColor: AppColors.lightSalmon,
+        ));
   }
 
   Widget _renderCommunityName() {

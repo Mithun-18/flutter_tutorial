@@ -6,6 +6,6 @@ class EventScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBaseScreen(screen: Text('boom'));
+    return const AppBaseScreen(screen: Text('boom'));
   }
 }
