@@ -1,26 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:testflutter/common/app_colors.dart';
+import 'package:testflutter/common/base_screen.dart';
 
-class VerificationPage extends StatelessWidget {
-  const VerificationPage({super.key});
+class VerificationScreen extends StatelessWidget {
+  const VerificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: AppColors.white,
-      padding: const EdgeInsets.all(24.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 60.0),
-          _renderTitle(),
-          _renderDescription(),
-          const SizedBox(height: 32.0),
-          _renderVerificationTextField(context),
-          const SizedBox(height: 40.0),
-          _renderResendCodeMssg(),
-        ],
+    return BaseScreen(
+      screen: SingleChildScrollView(
+        child: Container(
+          color: AppColors.white,
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 60.0),
+              _renderTitle(),
+              _renderDescription(),
+              const SizedBox(height: 32.0),
+              _renderVerificationTextField(context),
+              const SizedBox(height: 40.0),
+              _renderResendCodeMssg(),
+            ],
+          ),
+        ),
       ),
     );
   }
