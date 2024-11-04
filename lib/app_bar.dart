@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testflutter/common/app_colors.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double appbarHeight = 80.0;
@@ -9,7 +10,14 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
+      // bottom: PreferredSize(
+      //   preferredSize: const Size.fromHeight(4.0),
+      //   child: Container(
+      //     color: AppColors.white.withOpacity(0.1),
+      //     height: 2.0,
+      //   ),
+      // ),
       flexibleSpace: SizedBox(
         height: appbarHeight,
         child: Padding(
@@ -35,7 +43,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         width: 40.0,
         height: 40.0,
         decoration: BoxDecoration(
-          color: Colors.white, // Set a background color if needed
+          color: AppColors.white, // Set a background color if needed
           borderRadius:
               BorderRadius.circular(12.0), // Optional: add border radius
           boxShadow: const [

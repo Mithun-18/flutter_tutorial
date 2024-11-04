@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testflutter/common/app_colors.dart';
 import 'package:testflutter/phone_number_formatter.dart';
 
 class Registration extends StatelessWidget {
@@ -7,7 +8,7 @@ class Registration extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: AppColors.white,
       padding: const EdgeInsets.all(24.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

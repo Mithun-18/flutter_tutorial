@@ -8,6 +8,7 @@ class BookingCard extends StatelessWidget {
     return Card(
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[_renderImage(), _renderBookingInfo()],
       ),
     );

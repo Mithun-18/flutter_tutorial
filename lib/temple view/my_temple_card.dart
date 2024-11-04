@@ -8,7 +8,11 @@ class MyTempleCard extends StatelessWidget {
     return Card(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: <Widget>[_renderTempleImage(), _renderTempleInfo()],
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          _renderTempleImage(),
+          _renderTempleInfo(context),
+        ],
       ),
     );
   }
@@ -29,20 +33,17 @@ class MyTempleCard extends StatelessWidget {
         ));
   }
 
-  Widget _renderTempleInfo() {
+  Widget _renderTempleInfo(BuildContext context) {
     return Container(
       width: 360.0,
       padding: const EdgeInsets.all(16.0),
-      child: const Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
             "Ram Mandir",
-            style: TextStyle(
-                fontFamily: "Roboto",
-                fontSize: 14.0,
-                fontWeight: FontWeight.w700),
+            style: Theme.of(context).textTheme.titleSmall,
           ),
           Divider(),
           Text(
