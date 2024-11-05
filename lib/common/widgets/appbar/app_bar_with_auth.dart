@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/common/app_colors.dart';
 
-class AppBarWithOutAuth extends StatelessWidget implements PreferredSizeWidget {
+class AppBarWithAuth extends StatelessWidget implements PreferredSizeWidget {
   final double appbarHeight = 80.0;
 
-  const AppBarWithOutAuth({super.key});
+  const AppBarWithAuth({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class AppBarWithOutAuth extends StatelessWidget implements PreferredSizeWidget {
             children: [
               _renderLeading(context),
               _renderTitle(),
-              // _renderAction(),
+              _renderAction(),
             ],
           ),
         ),
@@ -30,7 +30,7 @@ class AppBarWithOutAuth extends StatelessWidget implements PreferredSizeWidget {
   Widget _renderLeading(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pop(context);
+        // Navigator.pop(context);
       },
       child: Container(
         width: 40.0,
@@ -48,7 +48,25 @@ class AppBarWithOutAuth extends StatelessWidget implements PreferredSizeWidget {
             )
           ],
         ),
-        child: const Icon(Icons.arrow_back_ios_rounded, size: 16.0),
+        child: IconButton(
+            icon: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 12,
+                  height: 2,
+                  color: AppColors.salmon,
+                ),
+                const SizedBox(height: 4),
+                Container(
+                  width: 8,
+                  height: 2,
+                  color: AppColors.salmon,
+                ),
+              ],
+            ),
+            onPressed: () {}),
       ),
     );
   }
@@ -63,11 +81,11 @@ class AppBarWithOutAuth extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  // Widget _renderAction() {
-  //   return const CircleAvatar(
-  //     backgroundImage: AssetImage("assets/profile.jpg"),
-  //   );
-  // }
+  Widget _renderAction() {
+    return const CircleAvatar(
+      backgroundImage: AssetImage("assets/profile.jpg"),
+    );
+  }
 
   @override
   Size get preferredSize => Size.fromHeight(appbarHeight);
