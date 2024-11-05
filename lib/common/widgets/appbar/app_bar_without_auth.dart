@@ -30,7 +30,7 @@ class AppBarWithOutAuth extends StatelessWidget implements PreferredSizeWidget {
   Widget _renderLeading(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigator.pop(context);
+        Navigator.pop(context);
       },
       child: Container(
         width: 40.0,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/common/app_colors.dart';
+import 'package:testflutter/common/app_routes.dart';
 import 'package:testflutter/common/base_screen.dart';
 import 'package:testflutter/phone_number_formatter.dart';
 
@@ -73,7 +74,7 @@ class RegistrationScreen extends StatelessWidget {
         width: 248.0,
         child: ElevatedButton(
           onPressed: () {
-            // Navigator.pushNamed(context, '/verification');
+            Navigator.pushNamed(context, AppRoutes.verificationRoute);
           },
           child: Text(
             "SEND",

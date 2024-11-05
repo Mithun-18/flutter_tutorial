@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:testflutter/common/app_colors.dart';
+import 'package:testflutter/common/app_routes.dart';
 import 'package:testflutter/common/base_screen.dart';
 
 class VerificationScreen extends StatelessWidget {
@@ -60,11 +61,16 @@ class VerificationScreen extends StatelessWidget {
       children: [
         Text("I don’t recevie a code! ",
             style: Theme.of(context).textTheme.labelLarge),
-        Text("Please resend",
-            style: Theme.of(context)
-                .textTheme
-                .labelLarge!
-                .copyWith(color: AppColors.salmon)),
+        IconButton(
+          icon: Text("Please resend",
+              style: Theme.of(context)
+                  .textTheme
+                  .labelLarge!
+                  .copyWith(color: AppColors.salmon)),
+          onPressed: () {
+            Navigator.pushNamed(context, AppRoutes.homeScreenRoute);
+          },
+        ),
       ],
     ));
   }

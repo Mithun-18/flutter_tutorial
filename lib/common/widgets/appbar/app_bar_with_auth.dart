@@ -29,27 +29,27 @@ class AppBarWithAuth extends StatelessWidget implements PreferredSizeWidget {
 
   Widget _renderLeading(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        // Navigator.pop(context);
-      },
-      child: Container(
-        width: 40.0,
-        height: 40.0,
-        decoration: BoxDecoration(
-          color: AppColors.white, // Set a background color if needed
-          borderRadius:
-              BorderRadius.circular(12.0), // Optional: add border radius
-          boxShadow: const [
-            BoxShadow(
-              color: Color.fromRGBO(211, 209, 216, 0.3),
-              offset: Offset(0, 2),
-              blurRadius: 4,
-              spreadRadius: 1,
-            )
-          ],
-        ),
-        child: IconButton(
-            icon: Column(
+        onTap: () {
+          Navigator.pop(context);
+        },
+        child: Container(
+          width: 40.0,
+          height: 40.0,
+          decoration: BoxDecoration(
+            color: AppColors.white, // Set a background color if needed
+            borderRadius:
+                BorderRadius.circular(12.0), // Optional: add border radius
+            boxShadow: const [
+              BoxShadow(
+                color: Color.fromRGBO(211, 209, 216, 0.3),
+                offset: Offset(0, 2),
+                blurRadius: 4,
+                spreadRadius: 1,
+              )
+            ],
+          ),
+          child: Center(
+            child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -66,9 +66,8 @@ class AppBarWithAuth extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ],
             ),
-            onPressed: () {}),
-      ),
-    );
+          ),
+        ));
   }
 
   Widget _renderTitle() {
