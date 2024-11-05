@@ -59,7 +59,7 @@ class VerificationScreen extends StatelessWidget {
         child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("I don’t recevie a code! ",
+        Text("I don’t recevie a code!",
             style: Theme.of(context).textTheme.labelLarge),
         IconButton(
           icon: Text("Please resend",
@@ -95,6 +95,7 @@ class VerificationScreen extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(10))),
           ),
           textAlign: TextAlign.center,
+          textAlignVertical: TextAlignVertical.center,
           keyboardType: TextInputType.number,
           inputFormatters: [
             LengthLimitingTextInputFormatter(1),

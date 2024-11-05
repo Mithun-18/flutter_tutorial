@@ -56,7 +56,11 @@ class AppElevatedButton extends StatelessWidget {
         if (aebPrefixIcon != null)
           Padding(
             padding: const EdgeInsets.only(right: 12.0),
-            child: Icon(aebPrefixIcon),
+            child: Icon(
+              aebPrefixIcon,
+              color: AppColors.white,
+              size: 28.0,
+            ),
           ),
         Text(
           aebText,

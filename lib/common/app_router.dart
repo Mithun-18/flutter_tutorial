@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/common/app_routes.dart';
 import 'package:testflutter/screens/event/event_screen.dart';
-import 'package:testflutter/screens/home/home_screen.dart';
 import 'package:testflutter/screens/registration/registration_screen.dart';
 import 'package:testflutter/screens/verification/verification_screen.dart';
 
@@ -25,7 +24,7 @@ class AppRouter {
       case AppRoutes.homeScreenRoute:
         return MaterialPageRoute(
           builder: (context) {
-            return const HomeScreen();
+            return const EventScreen();
           },
           settings: settings,
         );

@@ -18,8 +18,8 @@ class AppBarWithOutAuth extends StatelessWidget implements PreferredSizeWidget {
           child: Row(
             children: [
               _renderLeading(context),
+              const SizedBox(width: 40),
               _renderTitle(),
-              // _renderAction(),
             ],
           ),
         ),
@@ -54,20 +54,12 @@ class AppBarWithOutAuth extends StatelessWidget implements PreferredSizeWidget {
   }
 
   Widget _renderTitle() {
-    return Expanded(
-      child: Image.asset(
-        "assets/logo.png",
-        width: 132.0,
-        height: 44.0,
-      ),
+    return Image.asset(
+      "assets/logo.png",
+      width: 180.0,
+      height: 56.0,
     );
   }
-
-  // Widget _renderAction() {
-  //   return const CircleAvatar(
-  //     backgroundImage: AssetImage("assets/profile.jpg"),
-  //   );
-  // }
 
   @override
   Size get preferredSize => Size.fromHeight(appbarHeight);
