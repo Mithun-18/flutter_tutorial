@@ -17,12 +17,13 @@ class VerificationScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 60.0),
-              _renderTitle(),
-              _renderDescription(),
+              _renderTitle(context),
+              const SizedBox(height: 8.0),
+              _renderDescription(context),
               const SizedBox(height: 32.0),
               _renderVerificationTextField(context),
-              const SizedBox(height: 40.0),
-              _renderResendCodeMssg(),
+              const SizedBox(height: 48.0),
+              _renderResendCodeMssg(context),
             ],
           ),
         ),
@@ -30,27 +31,14 @@ class VerificationScreen extends StatelessWidget {
     );
   }
 
-  Widget _renderTitle() {
-    return const Text(
-      "Verification Code",
-      style: TextStyle(
-        fontWeight: FontWeight.w400,
-        fontSize: 36.0,
-        fontFamily: "Average Sans",
-      ),
-    );
+  Widget _renderTitle(BuildContext context) {
+    return Text("Verification Code",
+        style: Theme.of(context).textTheme.headlineLarge);
   }
 
-  Widget _renderDescription() {
-    return const Text(
-      "Please type the verification code sent to\nyour phone",
-      style: TextStyle(
-        fontFamily: "Alatsi",
-        fontSize: 14,
-        fontWeight: FontWeight.w600,
-        color: Color.fromRGBO(101, 100, 112, 1),
-      ),
-    );
+  Widget _renderDescription(BuildContext context) {
+    return Text("Please type the verification code sent to\nyour phone",
+        style: Theme.of(context).textTheme.headlineSmall);
   }
 
   Widget _renderVerificationTextField(BuildContext context) {
@@ -65,16 +53,20 @@ class VerificationScreen extends StatelessWidget {
     );
   }
 
-  Widget _renderResendCodeMssg() {
-    return const Center(
-      child: Text(
-        "I don’t recevie a code! Please resend",
-        style: TextStyle(
-            fontWeight: FontWeight.w400,
-            fontSize: 16,
-            fontFamily: "Amiri Quran Colored"),
-      ),
-    );
+  Widget _renderResendCodeMssg(BuildContext context) {
+    return Center(
+        child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text("I don’t recevie a code! ",
+            style: Theme.of(context).textTheme.labelLarge),
+        Text("Please resend",
+            style: Theme.of(context)
+                .textTheme
+                .labelLarge!
+                .copyWith(color: AppColors.salmon)),
+      ],
+    ));
   }
 
   Widget _renderVeficationFeild(BuildContext context) {
@@ -82,17 +74,19 @@ class VerificationScreen extends StatelessWidget {
         width: 64,
         height: 64,
         child: TextFormField(
-          style: const TextStyle(
-              fontFamily: "Amiri Quran Colored",
-              fontWeight: FontWeight.w400,
-              fontSize: 24.0),
+          cursorColor: AppColors.salmon,
+          style: Theme.of(context).textTheme.displayMedium,
           onChanged: (value) =>
               {if (value.length == 1) FocusScope.of(context).nextFocus()},
-          decoration: const InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-            ),
-            contentPadding: EdgeInsets.symmetric(vertical: 20),
+          decoration: InputDecoration(
+            border: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                borderSide:
+                    BorderSide(color: Color.fromRGBO(52, 168, 83, 1.0))),
+            contentPadding: const EdgeInsets.symmetric(vertical: 20),
+            focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: AppColors.fern),
+                borderRadius: const BorderRadius.all(Radius.circular(10))),
           ),
           textAlign: TextAlign.center,
           keyboardType: TextInputType.number,

@@ -21,6 +21,10 @@ class AppTheme {
           fontWeight: FontWeight.w700,
           color: AppColors.charcoal,
         ),
+        displayMedium: TextStyle(
+            fontSize: 28.0,
+            color: AppColors.salmon,
+            fontWeight: FontWeight.w400),
         headlineLarge: const TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: 36.0,
@@ -28,6 +32,11 @@ class AppTheme {
         headlineSmall: TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w600,
+          color: AppColors.dimGray,
+        ),
+        labelLarge: TextStyle(
+          fontWeight: FontWeight.w400,
+          fontSize: 16,
           color: AppColors.dimGray,
         ),
         labelMedium: TextStyle(

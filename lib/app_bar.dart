@@ -1,23 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/common/app_colors.dart';
 
-class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+class AppBarWithOutAuth extends StatelessWidget implements PreferredSizeWidget {
   final double appbarHeight = 80.0;
 
-  const MyAppBar({super.key});
+  const AppBarWithOutAuth({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
       backgroundColor: AppColors.white,
-      // bottom: PreferredSize(
-      //   preferredSize: const Size.fromHeight(4.0),
-      //   child: Container(
-      //     color: AppColors.white.withOpacity(0.1),
-      //     height: 2.0,
-      //   ),
-      // ),
       flexibleSpace: SizedBox(
         height: appbarHeight,
         child: Padding(
@@ -26,7 +19,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             children: [
               _renderLeading(context),
               _renderTitle(),
-              _renderAction(),
+              // _renderAction(),
             ],
           ),
         ),
@@ -70,11 +63,11 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  Widget _renderAction() {
-    return const CircleAvatar(
-      backgroundImage: AssetImage("assets/profile.jpg"),
-    );
-  }
+  // Widget _renderAction() {
+  //   return const CircleAvatar(
+  //     backgroundImage: AssetImage("assets/profile.jpg"),
+  //   );
+  // }
 
   @override
   Size get preferredSize => Size.fromHeight(appbarHeight);

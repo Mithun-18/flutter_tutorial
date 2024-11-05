@@ -10,7 +10,7 @@ class BaseScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: const MyAppBar(),
+        appBar: const AppBarWithOutAuth(),
         body: screen,
         backgroundColor: AppColors.white,
       ),
