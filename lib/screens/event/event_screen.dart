@@ -16,12 +16,7 @@ class EventScreen extends StatelessWidget {
           children: [
             _renderBookingSection(context),
             _renderSizedBox(),
-            const SizedBox(
-              height: 56,
-              child: AppElevatedButton(
-                  aebText: "Add Events",
-                  aebPrefixIcon: Icons.add_circle_outline),
-            )
+            _renderActionButton()
           ],
         ),
       ),
@@ -50,6 +45,14 @@ class EventScreen extends StatelessWidget {
   Widget _renderSizedBox() {
     return const SizedBox(
       height: 24.0,
+    );
+  }
+
+  Widget _renderActionButton() {
+    return const SizedBox(
+      height: 56,
+      child: AppElevatedButton(
+          aebText: "Add Events", aebPrefixIcon: Icons.add_circle_outline),
     );
   }
 }
