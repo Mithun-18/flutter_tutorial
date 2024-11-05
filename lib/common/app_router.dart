@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/common/app_routes.dart';
+import 'package:testflutter/screens/community/community_screen.dart';
 import 'package:testflutter/screens/event/event_screen.dart';
+import 'package:testflutter/screens/home/home_screen.dart';
 import 'package:testflutter/screens/registration/registration_screen.dart';
 import 'package:testflutter/screens/verification/verification_screen.dart';
 
@@ -24,7 +26,7 @@ class AppRouter {
       case AppRoutes.homeScreenRoute:
         return MaterialPageRoute(
           builder: (context) {
-            return const EventScreen();
+            return const HomeScreen();
           },
           settings: settings,
         );
@@ -32,6 +34,13 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) {
             return const EventScreen();
+          },
+          settings: settings,
+        );
+      case AppRoutes.communityRoute:
+        return MaterialPageRoute(
+          builder: (context) {
+            return const CommuntyScreen();
           },
           settings: settings,
         );

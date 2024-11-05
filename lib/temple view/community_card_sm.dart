@@ -42,9 +42,7 @@ class CommunityCardSm extends StatelessWidget {
         width: 88.0,
         height: 88.0,
         padding: const EdgeInsets.all(4),
-        child: CircleAvatar(
-          backgroundColor: AppColors.lightSalmon,
-        ));
+        child: CircleAvatar(backgroundColor: AppColors.lightSalmon));
   }
 
   Widget _renderCommunityName(BuildContext context) {

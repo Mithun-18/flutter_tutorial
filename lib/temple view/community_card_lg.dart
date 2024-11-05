@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testflutter/common/app_colors.dart';
 
 class CommunityCardLg extends StatelessWidget {
   const CommunityCardLg({super.key});
@@ -6,6 +7,7 @@ class CommunityCardLg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: AppColors.mistyRose,
       child: Stack(
         children: [
           Container(
@@ -21,39 +23,27 @@ class CommunityCardLg extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    const SizedBox(height: 8),
                     _renderCommunityName(),
                     _renderTempleName(),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 8),
                     _renderFooter(),
                   ],
                 )
               ],
             ),
           ),
-          Positioned(
-              bottom: 18,
-              right: 16,
-              child:
-                  Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                SizedBox(
-                    width: 18.0,
-                    height: 20.0,
-                    child: Image.asset("assets/edit.png")),
-                const Text(
-                  "Edit",
-                  style: TextStyle(
-                      fontFamily: "Inter",
-                      fontWeight: FontWeight.w300,
-                      fontSize: 10.0),
-                )
-              ]))
+          Positioned(bottom: 18, right: 16, child: _renderEditButton())
         ],
       ),
     );
   }
 
   Widget _renderProfile() {
-    return const SizedBox(width: 88.0, height: 88.0, child: CircleAvatar());
+    return SizedBox(
+        width: 88.0,
+        height: 88.0,
+        child: CircleAvatar(backgroundColor: AppColors.lightSalmon));
   }
 
   Widget _renderCommunityName() {
@@ -112,5 +102,17 @@ class CommunityCardLg extends StatelessWidget {
             ))
       ],
     );
+  }
+
+  Widget _renderEditButton() {
+    return Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+      SizedBox(
+          width: 18.0, height: 20.0, child: Image.asset("assets/edit.png")),
+      const Text(
+        "Edit",
+        style: TextStyle(
+            fontFamily: "Inter", fontWeight: FontWeight.w300, fontSize: 10.0),
+      )
+    ]);
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/common/app_base_screen.dart';
 import 'package:testflutter/common/app_colors.dart';
+import 'package:testflutter/common/app_routes.dart';
 import 'package:testflutter/common/widgets/core/app_elevated_button.dart';
 import 'package:testflutter/temple%20view/booking_card.dart';
 import 'package:testflutter/temple%20view/community_card_sm.dart';
@@ -21,7 +22,7 @@ class HomeScreen extends StatelessWidget {
               _renderSizeBox(),
               _renderBookingSection(context),
               _renderSizeBox(),
-              _renderButtons(),
+              _renderButtons(context),
               _renderSizeBox(),
               _renderCommunitySection(context)
             ],
@@ -68,7 +69,9 @@ class HomeScreen extends StatelessWidget {
       children: [
         Text("My Bookings", style: Theme.of(context).textTheme.titleMedium),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, AppRoutes.eventRoute);
+          },
           child: Text(
             "See All >>",
             style: TextStyle(
@@ -95,7 +98,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _renderActionButton(String text) {
+  Widget _renderActionButton(String text, {VoidCallback? onPressed}) {
     return SizedBox(
       // width: 184.0,
       height: 72.0,
@@ -103,6 +106,7 @@ class HomeScreen extends StatelessWidget {
         aebText: text,
         aebPrefixIcon: Icons.add_circle_outline,
         aebSizeSmall: true,
+        aebOnPressed: onPressed ?? () {},
       ),
     );
   }
@@ -141,7 +145,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _renderButtons() {
+  Widget _renderButtons(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -152,7 +156,9 @@ class HomeScreen extends StatelessWidget {
           runSpacing: 24.0,
           children: [
             _renderActionButton("Add Events"),
-            _renderActionButton("Add Community"),
+            _renderActionButton("Add Community", onPressed: () {
+              Navigator.pushNamed(context, AppRoutes.communityRoute);
+            }),
             _renderActionButton("Add Members"),
           ],
         ),
