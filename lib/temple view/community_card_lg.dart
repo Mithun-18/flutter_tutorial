@@ -24,16 +24,16 @@ class CommunityCardLg extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SizedBox(height: 8),
-                    _renderCommunityName(),
-                    _renderTempleName(),
+                    _renderCommunityName(context),
+                    _renderTempleName(context),
                     const SizedBox(height: 8),
-                    _renderFooter(),
+                    _renderFooter(context),
                   ],
                 )
               ],
             ),
           ),
-          Positioned(bottom: 18, right: 16, child: _renderEditButton())
+          Positioned(bottom: 18, right: 16, child: _renderEditButton(context))
         ],
       ),
     );
@@ -46,23 +46,22 @@ class CommunityCardLg extends StatelessWidget {
         child: CircleAvatar(backgroundColor: AppColors.lightSalmon));
   }
 
-  Widget _renderCommunityName() {
-    return const Text(
+  Widget _renderCommunityName(BuildContext context) {
+    return Text(
       "Event Volunteer",
-      style: TextStyle(
-          fontFamily: "Inter", fontWeight: FontWeight.w700, fontSize: 12.0),
+      style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 12.0),
     );
   }
 
-  Widget _renderTempleName() {
-    return const Text(
-      "Ram Mandir Ayodhya",
-      style: TextStyle(
-          fontFamily: "Inter", fontWeight: FontWeight.w400, fontSize: 12.0),
-    );
+  Widget _renderTempleName(BuildContext context) {
+    return Text("Ram Mandir Ayodhya",
+        style: Theme.of(context)
+            .textTheme
+            .labelMedium!
+            .copyWith(color: Colors.black));
   }
 
-  Widget _renderFooter() {
+  Widget _renderFooter(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -74,45 +73,29 @@ class CommunityCardLg extends StatelessWidget {
                 const SizedBox(
                   width: 4.0,
                 ),
-                const Text(
-                  "6.2K",
-                  style: TextStyle(
-                      fontFamily: "Inter",
-                      fontWeight: FontWeight.w300,
-                      fontSize: 10.0),
-                ),
+                Text("6.2K", style: Theme.of(context).textTheme.labelSmall),
               ],
             )),
         TextButton(
             onPressed: () {},
-            child: const Row(
+            child: Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.favorite,
                   size: 12.0,
                 ),
-                Text(
-                  "156K",
-                  style: TextStyle(
-                      fontFamily: "Inter",
-                      fontWeight: FontWeight.w300,
-                      fontSize: 10.0),
-                ),
+                Text("156K", style: Theme.of(context).textTheme.labelSmall),
               ],
             ))
       ],
     );
   }
 
-  Widget _renderEditButton() {
+  Widget _renderEditButton(BuildContext context) {
     return Column(mainAxisAlignment: MainAxisAlignment.end, children: [
       SizedBox(
           width: 18.0, height: 20.0, child: Image.asset("assets/edit.png")),
-      const Text(
-        "Edit",
-        style: TextStyle(
-            fontFamily: "Inter", fontWeight: FontWeight.w300, fontSize: 10.0),
-      )
+      Text("Edit", style: Theme.of(context).textTheme.labelSmall)
     ]);
   }
 }

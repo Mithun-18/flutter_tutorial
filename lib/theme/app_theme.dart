@@ -43,6 +43,11 @@ class AppTheme {
           fontWeight: FontWeight.w500,
           fontSize: 12,
           color: AppColors.white,
+        ),
+        labelSmall: TextStyle(
+          fontWeight: FontWeight.w300,
+          fontSize: 10,
+          color: AppColors.charcoal,
         )),
     cardTheme: CardTheme(color: AppColors.white),
     elevatedButtonTheme: ElevatedButtonThemeData(
