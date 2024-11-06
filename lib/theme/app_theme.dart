@@ -45,9 +45,9 @@ class AppTheme {
           color: AppColors.white,
         ),
         labelSmall: TextStyle(
-          fontWeight: FontWeight.w300,
+          fontWeight: FontWeight.w400,
           fontSize: 10,
-          color: AppColors.charcoal,
+          color: AppColors.black,
         )),
     cardTheme: CardTheme(color: AppColors.white),
     elevatedButtonTheme: ElevatedButtonThemeData(

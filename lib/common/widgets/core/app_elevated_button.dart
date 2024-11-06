@@ -4,18 +4,19 @@ import 'package:testflutter/common/app_colors.dart';
 class AppElevatedButton extends StatelessWidget {
   final VoidCallback? aebOnPressed;
   final IconData? aebPrefixIcon;
+  final IconData? aebSufixIcon;
   final String aebText;
   final TextStyle? aebTextStyle;
   final bool? aebSizeSmall;
 
-  const AppElevatedButton({
-    super.key,
-    required this.aebText,
-    this.aebOnPressed,
-    this.aebPrefixIcon,
-    this.aebTextStyle,
-    this.aebSizeSmall,
-  });
+  const AppElevatedButton(
+      {super.key,
+      required this.aebText,
+      this.aebOnPressed,
+      this.aebPrefixIcon,
+      this.aebTextStyle,
+      this.aebSizeSmall,
+      this.aebSufixIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +70,16 @@ class AppElevatedButton extends StatelessWidget {
                   .textTheme
                   .titleLarge!
                   .copyWith(fontFamily: 'Inter'),
-        )
+        ),
+        if (aebSufixIcon != null)
+          Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: Icon(
+              aebSufixIcon,
+              color: AppColors.white,
+              size: 28.0,
+            ),
+          ),
       ],
     );
   }
