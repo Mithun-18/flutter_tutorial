@@ -17,13 +17,13 @@ class RegistrationScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 60.0),
+              const SizedBox(height: 72.0),
               _renderTitle(context),
               const SizedBox(height: 8.0),
               _renderDescription(context),
               const SizedBox(height: 32.0),
-              _renderMobileNumberTextField(),
-              const SizedBox(height: 40.0),
+              _renderMobileNumberTextField(context),
+              const SizedBox(height: 48.0),
               _renderActionButton(context),
             ],
           ),
@@ -42,23 +42,24 @@ class RegistrationScreen extends StatelessWidget {
         style: Theme.of(context).textTheme.headlineSmall);
   }
 
-  Widget _renderMobileNumberTextField() {
+  Widget _renderMobileNumberTextField(BuildContext context) {
     return TextFormField(
+      style: Theme.of(context)
+          .textTheme
+          .titleMedium!
+          .copyWith(color: AppColors.black),
       decoration: InputDecoration(
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide:
-              BorderSide(color: AppColors.azure), // Outline color on focus
-        ),
+            borderSide: BorderSide(color: AppColors.azure),
+            borderRadius: const BorderRadius.all(Radius.circular(10))),
         hintText: "(+91) 99-101-25628",
-        hintStyle: const TextStyle(
-          fontSize: 17,
-          fontWeight: FontWeight.w400,
-          fontFamily: "Alatsi",
-          color: Color.fromRGBO(17, 23, 25, 1),
-        ),
+        hintStyle: Theme.of(context)
+            .textTheme
+            .titleMedium!
+            .copyWith(color: AppColors.black),
         contentPadding: const EdgeInsets.symmetric(vertical: 20),
       ),
       textAlign: TextAlign.center,
@@ -69,22 +70,18 @@ class RegistrationScreen extends StatelessWidget {
 
   Widget _renderActionButton(BuildContext context) {
     return Center(
-      child: SizedBox(
-        height: 60.0,
-        width: 248.0,
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pushNamed(context, AppRoutes.verificationRoute);
-          },
-          child: Text(
-            "SEND",
-            style: Theme.of(context)
-                .textTheme
-                .titleLarge!
-                .copyWith(fontWeight: FontWeight.w400),
-          ),
-        ),
-      ),
-    );
+        child: SizedBox(
+            height: 60.0,
+            width: 248.0,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, AppRoutes.verificationRoute);
+              },
+              child: Text("SEND",
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge!
+                      .copyWith(fontWeight: FontWeight.w400)),
+            )));
   }
 }
