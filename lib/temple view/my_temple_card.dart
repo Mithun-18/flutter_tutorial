@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testflutter/common/app_colors.dart';
 
 class MyTempleCard extends StatelessWidget {
   const MyTempleCard({super.key});
@@ -45,7 +46,7 @@ class MyTempleCard extends StatelessWidget {
             "Ram Mandir",
             style: Theme.of(context).textTheme.titleSmall,
           ),
-          const Divider(),
+          Divider(color: AppColors.munsell),
           const Text(
             "Ayodhya, UP",
             style: TextStyle(

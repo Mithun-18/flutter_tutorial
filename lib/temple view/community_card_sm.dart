@@ -56,7 +56,7 @@ class CommunityCardSm extends StatelessWidget {
         style: Theme.of(context)
             .textTheme
             .labelMedium!
-            .copyWith(color: Colors.black));
+            .copyWith(color: AppColors.black, fontWeight: FontWeight.w400));
   }
 
   Widget _renderFooter(BuildContext context) {
@@ -71,10 +71,11 @@ class CommunityCardSm extends StatelessWidget {
                 const SizedBox(
                   width: 4.0,
                 ),
-                Text(
-                  "6.2K",
-                  style: Theme.of(context).textTheme.labelSmall,
-                ),
+                Text("6.2K",
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelSmall!
+                        .copyWith(color: AppColors.charcoal)),
               ],
             )),
         TextButton(
@@ -85,10 +86,11 @@ class CommunityCardSm extends StatelessWidget {
                   Icons.favorite,
                   size: 12.0,
                 ),
-                Text(
-                  "156K",
-                  style: Theme.of(context).textTheme.labelSmall,
-                ),
+                Text("156K",
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelSmall!
+                        .copyWith(color: AppColors.charcoal)),
               ],
             ))
       ],

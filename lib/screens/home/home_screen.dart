@@ -56,9 +56,6 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         )
-        // AppTextButton(
-        //     aebText: "Update",
-        //     aebSufixIcon: ImageIcon(AssetImage("assets/edit.png"))),
       ],
     );
   }
@@ -100,7 +97,6 @@ class HomeScreen extends StatelessWidget {
 
   Widget _renderActionButton(String text, {VoidCallback? onPressed}) {
     return SizedBox(
-      // width: 184.0,
       height: 72.0,
       child: AppElevatedButton(
         aebText: text,
