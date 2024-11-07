@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testflutter/common/app_colors.dart';
 import 'package:testflutter/common/widgets/core/app_elevated_button.dart';
 
 class BookingCard extends StatelessWidget {
@@ -39,23 +40,16 @@ class BookingCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Column(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Morning Aarti",
-                style: TextStyle(
-                    fontFamily: "Roboto",
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w700),
-              ),
-              Text(
-                "Time: 5:00 AM",
-                style: TextStyle(
-                    fontFamily: "Roboto",
-                    fontSize: 12.0,
-                    fontWeight: FontWeight.w500),
-              )
+              Text("Morning Aarti",
+                  style: Theme.of(context).textTheme.titleSmall),
+              Text("Time: 5:00 AM",
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelMedium!
+                      .copyWith(color: AppColors.black))
             ],
           ),
           SizedBox(
