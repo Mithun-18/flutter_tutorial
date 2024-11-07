@@ -13,4 +13,5 @@ class AppColors {
   static Color coral = const Color.fromRGBO(255, 130, 85, 1.0);
   static Color azure = const Color.fromRGBO(24, 119, 242, 1.0);
   static Color fern = const Color.fromRGBO(52, 168, 83, 1.0);
+  static Color munsell = const Color.fromRGBO(238, 238, 238, 1.0);
 }

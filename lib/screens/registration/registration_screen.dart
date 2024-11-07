@@ -13,7 +13,6 @@ class RegistrationScreen extends StatelessWidget {
       screen: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(24.0),
-          color: AppColors.white,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
