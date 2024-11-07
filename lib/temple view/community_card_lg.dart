@@ -58,7 +58,7 @@ class CommunityCardLg extends StatelessWidget {
         style: Theme.of(context)
             .textTheme
             .labelMedium!
-            .copyWith(color: Colors.black));
+            .copyWith(color: Colors.black, fontWeight: FontWeight.w400));
   }
 
   Widget _renderFooter(BuildContext context) {
@@ -67,26 +67,30 @@ class CommunityCardLg extends StatelessWidget {
       children: [
         TextButton(
             onPressed: () {},
-            child: Row(
-              children: [
-                Image.asset('assets/community.png'),
-                const SizedBox(
-                  width: 4.0,
-                ),
-                Text("6.2K", style: Theme.of(context).textTheme.labelSmall),
-              ],
-            )),
+            child: Row(children: [
+              Image.asset('assets/community.png'),
+              const SizedBox(
+                width: 4.0,
+              ),
+              Text("6.2K",
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelSmall!
+                      .copyWith(color: AppColors.charcoal))
+            ])),
         TextButton(
             onPressed: () {},
-            child: Row(
-              children: [
-                const Icon(
-                  Icons.favorite,
-                  size: 12.0,
-                ),
-                Text("156K", style: Theme.of(context).textTheme.labelSmall),
-              ],
-            ))
+            child: Row(children: [
+              const Icon(
+                Icons.favorite,
+                size: 12.0,
+              ),
+              Text("156K",
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelSmall!
+                      .copyWith(color: AppColors.charcoal))
+            ]))
       ],
     );
   }
