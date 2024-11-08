@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/common/app_routes.dart';
+import 'package:testflutter/screens/account/account_screen.dart';
 import 'package:testflutter/screens/community/community_screen.dart';
 import 'package:testflutter/screens/event/event_screen.dart';
 import 'package:testflutter/screens/home/home_screen.dart';
-import 'package:testflutter/screens/registration/registration_screen.dart';
 import 'package:testflutter/screens/verification/verification_screen.dart';
 
 class AppRouter {
@@ -12,7 +12,7 @@ class AppRouter {
       case AppRoutes.homeRoute:
         return MaterialPageRoute(
           builder: (context) {
-            return const RegistrationScreen();
+            return const AccountScreen();
           },
           settings: settings,
         );
