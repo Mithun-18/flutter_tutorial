@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:testflutter/common/app_colors.dart';
 
-class AccountProfile extends StatelessWidget {
+class AccountProfile extends StatefulWidget {
   const AccountProfile({super.key});
 
+  @override
+  State<AccountProfile> createState() => _AccountProfileState();
+}
+
+class _AccountProfileState extends State<AccountProfile> {
+  static bool showOptions = true;
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
@@ -15,7 +21,7 @@ class AccountProfile extends StatelessWidget {
             children: [
               _renderTempleDetails(context),
               _renderViewAction(context),
-              // _renderViews(context)
+              if (showOptions) _renderViews(context)
             ],
           )
         ],
@@ -85,24 +91,33 @@ class AccountProfile extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 56.0),
       decoration: BoxDecoration(
         color: AppColors.coral,
-        borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(14.0),
-          bottomRight: Radius.circular(14.0),
+        borderRadius: BorderRadius.only(
+          bottomLeft: const Radius.circular(14.0),
+          bottomRight: Radius.circular(showOptions ? 0.0 : 14.0),
         ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Change View",
-                  style: Theme.of(context).textTheme.labelMedium),
-              Icon(
-                Icons.keyboard_arrow_right_rounded,
-                color: AppColors.white,
-              )
-            ],
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                showOptions = !showOptions;
+              });
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Change View",
+                    style: Theme.of(context).textTheme.labelMedium),
+                Icon(
+                  showOptions
+                      ? Icons.keyboard_arrow_down_rounded
+                      : Icons.keyboard_arrow_right_rounded,
+                  color: AppColors.white,
+                )
+              ],
+            ),
           ),
         ],
       ),
